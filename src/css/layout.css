@@ -1,0 +1,108 @@
+/* ============================================================
+   ADITYA NUTS — Layout System
+   ============================================================ */
+
+/* ── CONTAINERS ──────────────────────────────────────────── */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--text {
+  max-width: var(--container-text);
+}
+
+.container--full {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ── SECTIONS ────────────────────────────────────────────── */
+
+.section {
+  position: relative;
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+
+.section--sm {
+  padding-top: var(--section-gap-sm);
+  padding-bottom: var(--section-gap-sm);
+}
+
+.section--flush {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ── GRID ────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+@media (max-width: 768px) {
+  .grid--2,
+  .grid--3,
+  .grid--6 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid--6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── FLEX UTILITIES ──────────────────────────────────────── */
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+.gap-8 { gap: var(--space-8); }

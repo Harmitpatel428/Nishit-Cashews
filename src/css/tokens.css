@@ -1,0 +1,131 @@
+/* ============================================================
+   ADITYA NUTS — Design System Tokens
+   ============================================================
+   Precision + Craft + Natural Material + Trust
+   ============================================================ */
+
+:root {
+  /* ── COLOR SYSTEM ──────────────────────────────────────── */
+  
+  /* Core Palette */
+  --ink:          #11110F;
+  --ink-light:    #1A1A17;
+  --ink-medium:   #2A2A25;
+  --ivory:        #F2EEE6;
+  --ivory-dim:    #E8E3D9;
+  --cashew:       #D8C3A5;
+  --cashew-light: #E5D5BE;
+  --earth:        #6B4D35;
+  --earth-light:  #8B6D55;
+  --amber:        #B8893C;
+  --gold:         #A8874A;
+  --gold-dim:     rgba(168, 135, 74, 0.15);
+  
+  /* Semantic Colors */
+  --color-bg:           var(--ink);
+  --color-bg-elevated:  var(--ink-light);
+  --color-bg-surface:   var(--ink-medium);
+  --color-text-primary: var(--ivory);
+  --color-text-secondary: var(--cashew);
+  --color-text-muted:   var(--earth-light);
+  --color-accent:       var(--amber);
+  --color-accent-dim:   var(--gold-dim);
+  --color-border:       rgba(242, 238, 230, 0.08);
+  --color-border-strong: rgba(242, 238, 230, 0.15);
+  
+  /* ── TYPOGRAPHY ────────────────────────────────────────── */
+  
+  /* Font Families */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Font Sizes — fluid scale */
+  --text-xs:    clamp(0.6875rem, 0.65rem + 0.15vw, 0.75rem);    /* 11-12px */
+  --text-sm:    clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);       /* 12-14px */
+  --text-base:  clamp(0.875rem, 0.8rem + 0.3vw, 1rem);          /* 14-16px */
+  --text-lg:    clamp(1rem, 0.9rem + 0.4vw, 1.25rem);           /* 16-20px */
+  --text-xl:    clamp(1.25rem, 1rem + 0.8vw, 1.75rem);          /* 20-28px */
+  --text-2xl:   clamp(1.5rem, 1.1rem + 1.5vw, 2.5rem);         /* 24-40px */
+  --text-3xl:   clamp(2rem, 1.3rem + 2.5vw, 3.5rem);           /* 32-56px */
+  --text-4xl:   clamp(2.5rem, 1.5rem + 4vw, 5rem);             /* 40-80px */
+  --text-5xl:   clamp(3rem, 1.5rem + 5.5vw, 7rem);             /* 48-112px */
+  --text-hero:  clamp(3.5rem, 1rem + 8vw, 9rem);               /* 56-144px */
+  
+  /* Font Weights */
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  
+  /* Line Heights */
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+  
+  /* Letter Spacing */
+  --tracking-tight:    -0.03em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.1em;
+  --tracking-widest:   0.2em;
+  
+  /* ── SPACING ───────────────────────────────────────────── */
+  /* 8px base rhythm — spacious (density 3/10) */
+  
+  --space-1:   0.25rem;   /* 4px */
+  --space-2:   0.5rem;    /* 8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+  --space-40:  10rem;     /* 160px */
+  --space-48:  12rem;     /* 192px */
+  
+  /* Section spacing — generous */
+  --section-gap: clamp(6rem, 5rem + 8vw, 12rem);
+  --section-gap-sm: clamp(4rem, 3rem + 5vw, 8rem);
+  
+  /* ── LAYOUT ────────────────────────────────────────────── */
+  
+  --container-max:    1440px;
+  --container-narrow: 960px;
+  --container-text:   720px;
+  --gutter:           clamp(1.25rem, 1rem + 2vw, 3rem);
+  
+  /* ── ANIMATION ─────────────────────────────────────────── */
+  
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);     /* expo.out */
+  --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);    /* expo.inOut */
+  --ease-smooth:    cubic-bezier(0.25, 0.1, 0.25, 1);  /* smooth decel */
+  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot */
+  
+  --duration-fast:    150ms;
+  --duration-base:    300ms;
+  --duration-slow:    500ms;
+  --duration-slower:  800ms;
+  --duration-slowest: 1200ms;
+  
+  /* ── BORDERS & RADIUS ──────────────────────────────────── */
+  
+  --radius-sm:   2px;
+  --radius-base: 4px;
+  --radius-lg:   8px;
+  --radius-xl:   12px;
+  
+  /* ── Z-INDEX ───────────────────────────────────────────── */
+  
+  --z-base:      1;
+  --z-elevated:  10;
+  --z-nav:       100;
+  --z-overlay:   500;
+  --z-preloader: 1000;
+}

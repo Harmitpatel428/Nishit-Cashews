@@ -593,17 +593,11 @@
   font-style: normal;
 }
 
-.contact__map-link {
+.contact__map-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: var(--text-sm);
-  color: var(--amber);
-  transition: opacity var(--duration-base);
-}
-
-.contact__map-link:hover {
-  opacity: 0.7;
+  margin-top: var(--space-2);
 }
 
 .contact__right {

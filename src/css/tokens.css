@@ -7,19 +7,19 @@
 :root {
   /* ── COLOR SYSTEM ──────────────────────────────────────── */
   
-  /* Core Palette */
-  --ink:          #11110F;
-  --ink-light:    #1A1A17;
-  --ink-medium:   #2A2A25;
-  --ivory:        #F2EEE6;
-  --ivory-dim:    #E8E3D9;
-  --cashew:       #D8C3A5;
-  --cashew-light: #E5D5BE;
-  --earth:        #6B4D35;
-  --earth-light:  #8B6D55;
-  --amber:        #B8893C;
-  --gold:         #A8874A;
-  --gold-dim:     rgba(168, 135, 74, 0.15);
+  /* Core Palette — Organic Earth & Cashew Tones */
+  --ink:          #121110;
+  --ink-light:    #1B1917;
+  --ink-medium:   #2B2824;
+  --ivory:        #F4F0E8;
+  --ivory-dim:    #E6E0D4;
+  --cashew:       #DCCAB2;
+  --cashew-light: #E9DCB6;
+  --earth:        #70543E;
+  --earth-light:  #947257;
+  --amber:        #C49A45;
+  --gold:         #B08A38;
+  --gold-dim:     rgba(176, 138, 56, 0.12);
   
   /* Semantic Colors */
   --color-bg:           var(--ink);
@@ -30,8 +30,8 @@
   --color-text-muted:   var(--earth-light);
   --color-accent:       var(--amber);
   --color-accent-dim:   var(--gold-dim);
-  --color-border:       rgba(242, 238, 230, 0.08);
-  --color-border-strong: rgba(242, 238, 230, 0.15);
+  --color-border:       rgba(244, 240, 232, 0.08);
+  --color-border-strong: rgba(244, 240, 232, 0.16);
   
   /* ── TYPOGRAPHY ────────────────────────────────────────── */
   
@@ -46,11 +46,11 @@
   --text-base:  clamp(0.875rem, 0.8rem + 0.3vw, 1rem);          /* 14-16px */
   --text-lg:    clamp(1rem, 0.9rem + 0.4vw, 1.25rem);           /* 16-20px */
   --text-xl:    clamp(1.25rem, 1rem + 0.8vw, 1.75rem);          /* 20-28px */
-  --text-2xl:   clamp(1.5rem, 1.1rem + 1.5vw, 2.5rem);         /* 24-40px */
-  --text-3xl:   clamp(2rem, 1.3rem + 2.5vw, 3.5rem);           /* 32-56px */
-  --text-4xl:   clamp(2.5rem, 1.5rem + 4vw, 5rem);             /* 40-80px */
-  --text-5xl:   clamp(3rem, 1.5rem + 5.5vw, 7rem);             /* 48-112px */
-  --text-hero:  clamp(3.5rem, 1rem + 8vw, 9rem);               /* 56-144px */
+  --text-2xl:   clamp(1.5rem, 1.1rem + 1.5vw, 2.25rem);         /* 24-36px */
+  --text-3xl:   clamp(1.875rem, 1.3rem + 2vw, 3rem);            /* 30-48px */
+  --text-4xl:   clamp(2.25rem, 1.4rem + 3vw, 4rem);             /* 36-64px */
+  --text-5xl:   clamp(2.75rem, 1.5rem + 4.5vw, 5.5rem);         /* 44-88px */
+  --text-hero:  clamp(3.25rem, 1.2rem + 6.5vw, 7.5rem);         /* 52-120px */
   
   /* Font Weights */
   --weight-light:    300;
@@ -66,15 +66,13 @@
   --leading-relaxed: 1.7;
   
   /* Letter Spacing */
-  --tracking-tight:    -0.03em;
+  --tracking-tight:    -0.02em;
   --tracking-normal:   0;
-  --tracking-wide:     0.05em;
-  --tracking-wider:    0.1em;
-  --tracking-widest:   0.2em;
+  --tracking-wide:     0.04em;
+  --tracking-wider:    0.08em;
+  --tracking-widest:   0.15em;
   
   /* ── SPACING ───────────────────────────────────────────── */
-  /* 8px base rhythm — spacious (density 3/10) */
-  
   --space-1:   0.25rem;   /* 4px */
   --space-2:   0.5rem;    /* 8px */
   --space-3:   0.75rem;   /* 12px */
@@ -87,42 +85,33 @@
   --space-20:  5rem;      /* 80px */
   --space-24:  6rem;      /* 96px */
   --space-32:  8rem;      /* 128px */
-  --space-40:  10rem;     /* 160px */
-  --space-48:  12rem;     /* 192px */
   
-  /* Section spacing — generous */
-  --section-gap: clamp(6rem, 5rem + 8vw, 12rem);
-  --section-gap-sm: clamp(4rem, 3rem + 5vw, 8rem);
+  /* Section spacing */
+  --section-gap: clamp(5rem, 4rem + 6vw, 10rem);
+  --section-gap-sm: clamp(3.5rem, 2.5rem + 4vw, 7rem);
   
   /* ── LAYOUT ────────────────────────────────────────────── */
-  
-  --container-max:    1440px;
-  --container-narrow: 960px;
-  --container-text:   720px;
-  --gutter:           clamp(1.25rem, 1rem + 2vw, 3rem);
+  --container-max:    1320px;
+  --container-narrow: 920px;
+  --container-text:   680px;
+  --gutter:           clamp(1.25rem, 1rem + 2vw, 2.5rem);
   
   /* ── ANIMATION ─────────────────────────────────────────── */
-  
-  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);     /* expo.out */
-  --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);    /* expo.inOut */
-  --ease-smooth:    cubic-bezier(0.25, 0.1, 0.25, 1);  /* smooth decel */
-  --ease-spring:    cubic-bezier(0.34, 1.56, 0.64, 1); /* slight overshoot */
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:    cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-smooth:    cubic-bezier(0.25, 0.1, 0.25, 1);
   
   --duration-fast:    150ms;
   --duration-base:    300ms;
   --duration-slow:    500ms;
   --duration-slower:  800ms;
-  --duration-slowest: 1200ms;
   
   /* ── BORDERS & RADIUS ──────────────────────────────────── */
-  
   --radius-sm:   2px;
   --radius-base: 4px;
   --radius-lg:   8px;
-  --radius-xl:   12px;
   
   /* ── Z-INDEX ───────────────────────────────────────────── */
-  
   --z-base:      1;
   --z-elevated:  10;
   --z-nav:       100;

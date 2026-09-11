@@ -1,18 +1,14 @@
 /* ============================================================
    ADITYA NUTS — Cashew Shell Opening Animation
    ============================================================
-   The signature scroll interaction.
-   
-   Uses GSAP ScrollTrigger with scrub to create a physically
-   believable shell separation driven by scroll position.
+   Scroll interaction representing natural cashew structure.
    
    Phases:
-   1. Shell intact, subtle float
-   2. Shell begins rotating
-   3. Shell halves separate along natural crack
-   4. Kernel revealed with scale + glow
-   5. Phase text transitions
-   6. Kernel becomes bridge to next section
+   1. Intact shell with subtle organic rotation and depth
+   2. Tension & asymmetric micro-rotation along natural seam
+   3. Controlled physical separation revealing kernel
+   4. Kernel emergence with subtle shadow & lighting depth
+   5. Smooth transition into content
    ============================================================ */
 
 import gsap from 'gsap';
@@ -32,150 +28,145 @@ export function initCashewAnimation() {
   
   if (!section || !shellLeft || !shellRight || !kernel) return;
   
-  // Master timeline pinned to the opening section
+  // Set initial organic positioning
+  gsap.set(shellLeft, { transformOrigin: '20% 80%', rotateZ: 0 });
+  gsap.set(shellRight, { transformOrigin: '80% 80%', rotateZ: 0 });
+  gsap.set(kernel, { scale: 0.85, opacity: 0 });
+  
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: section,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 1,
-      pin: false, // section already has sticky positioning
+      scrub: 1.2,
+      pin: false, // section already has CSS position: sticky
     }
   });
   
-  // ── PHASE 01: The Shell (0% - 20%) ────────────────────
-  // Shell is intact, subtle breathing/float
+  // ── PHASE 01: Raw Shell (0% - 20%) ────────────────────
+  // Natural breathing & initial slight tilt
   tl.fromTo([shellLeft, shellRight], 
-    { 
-      scale: 0.9,
-      rotation: 0 
-    },
-    { 
-      scale: 1,
-      rotation: 2,
-      duration: 0.2,
-      ease: 'none'
-    }, 0
+    { scale: 0.92, rotateZ: 0 },
+    { scale: 1, rotateZ: 1.5, duration: 0.2, ease: 'power1.out' }, 0
   );
   
-  // Show phase 1 text
   tl.fromTo(phaseText1,
-    { opacity: 0, y: 20 },
+    { opacity: 0, y: 15 },
     { opacity: 1, y: 0, duration: 0.08, ease: 'power2.out' }, 0.02
   );
   tl.to(phaseText1,
-    { opacity: 0, y: -15, duration: 0.08, ease: 'power2.in' }, 0.15
+    { opacity: 0, y: -10, duration: 0.08, ease: 'power2.in' }, 0.16
   );
   
-  // ── PHASE 02: The Rotation (20% - 40%) ────────────────
-  // Shell rotates, tension builds
+  // ── PHASE 02: Crack & Asymmetric Tension (20% - 40%) ──
+  // Asymmetric tilt as shell begins splitting
   tl.to(shellLeft, {
-    rotation: -5,
-    x: -8,
+    rotateZ: -4,
+    x: '-3%',
+    y: '-1%',
     duration: 0.2,
-    ease: 'none'
+    ease: 'sine.inOut'
   }, 0.2);
   
   tl.to(shellRight, {
-    rotation: 5,
-    x: 8,
+    rotateZ: 6,
+    x: '4%',
+    y: '1%',
     duration: 0.2,
-    ease: 'none'
+    ease: 'sine.inOut'
   }, 0.2);
   
-  // Show phase 2 text
   tl.fromTo(phaseText2,
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.08, ease: 'power2.out' }, 0.25
+    { opacity: 0, y: 15 },
+    { opacity: 1, y: 0, duration: 0.08, ease: 'power2.out' }, 0.24
   );
   tl.to(phaseText2,
-    { opacity: 0, y: -15, duration: 0.08, ease: 'power2.in' }, 0.38
+    { opacity: 0, y: -10, duration: 0.08, ease: 'power2.in' }, 0.38
   );
   
-  // ── PHASE 03: The Separation (40% - 65%) ──────────────
-  // Shell halves separate — the core interaction
+  // ── PHASE 03: Controlled Separation (40% - 68%) ───────
+  // Shell halves part physically with realistic parallax and rotation
   tl.to(shellLeft, {
-    x: '-45%',
-    rotation: -18,
-    scale: 0.85,
-    opacity: 0.6,
-    duration: 0.25,
-    ease: 'none'
+    x: '-42%',
+    y: '-3%',
+    rotateZ: -16,
+    scale: 0.88,
+    opacity: 0.7,
+    duration: 0.28,
+    ease: 'power2.out'
   }, 0.4);
   
   tl.to(shellRight, {
     x: '45%',
-    rotation: 18,
-    scale: 0.85,
-    opacity: 0.6,
-    duration: 0.25,
-    ease: 'none'
+    y: '4%',
+    rotateZ: 14,
+    scale: 0.88,
+    opacity: 0.7,
+    duration: 0.28,
+    ease: 'power2.out'
   }, 0.4);
   
-  // ── PHASE 04: Kernel Reveal (50% - 75%) ───────────────
+  // ── PHASE 04: Kernel Emergence (45% - 75%) ──────────────
   tl.to(kernel, {
     opacity: 1,
     scale: 1,
+    y: 0,
     duration: 0.25,
-    ease: 'none'
+    ease: 'power2.out'
   }, 0.45);
   
-  // Glow intensifies
   if (glow) {
     tl.to(glow, {
-      opacity: 1,
-      scale: 1.2,
-      duration: 0.2,
-      ease: 'none'
-    }, 0.5);
+      opacity: 0.8,
+      scale: 1.15,
+      duration: 0.25,
+      ease: 'sine.out'
+    }, 0.48);
   }
   
-  // Show phase 3 text
   tl.fromTo(phaseText3,
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.1, ease: 'power2.out' }, 0.55
+    { opacity: 0, y: 15 },
+    { opacity: 1, y: 0, duration: 0.1, ease: 'power2.out' }, 0.52
   );
   
-  // ── PHASE 05: Shell fragments fade (65% - 85%) ────────
+  // ── PHASE 05: Shell Halves Clear Scene (68% - 88%) ─────
   tl.to(shellLeft, {
-    x: '-80%',
-    rotation: -30,
+    x: '-75%',
+    rotateZ: -25,
     opacity: 0,
-    scale: 0.6,
+    scale: 0.7,
     duration: 0.2,
-    ease: 'none'
-  }, 0.65);
+    ease: 'power2.in'
+  }, 0.68);
   
   tl.to(shellRight, {
-    x: '80%',
-    rotation: 30,
+    x: '75%',
+    rotateZ: 22,
     opacity: 0,
-    scale: 0.6,
+    scale: 0.7,
     duration: 0.2,
-    ease: 'none'
-  }, 0.65);
+    ease: 'power2.in'
+  }, 0.68);
   
-  // ── PHASE 06: Kernel hero moment (75% - 100%) ─────────
+  // ── PHASE 06: Kernel Settles (75% - 100%) ──────────────
   tl.to(kernel, {
-    scale: 1.15,
-    duration: 0.25,
-    ease: 'none'
+    scale: 1.05,
+    duration: 0.15,
+    ease: 'sine.out'
   }, 0.75);
   
-  // Fade phase 3 text
   tl.to(phaseText3, {
     opacity: 0,
     duration: 0.1,
-    ease: 'none'
-  }, 0.85);
+    ease: 'power1.in'
+  }, 0.82);
   
-  // Final: kernel settles
   tl.to(kernel, {
-    scale: 1,
-    opacity: 0.8,
-    y: -30,
+    scale: 0.95,
+    opacity: 0.85,
+    y: -20,
     duration: 0.15,
-    ease: 'none'
+    ease: 'power2.inOut'
   }, 0.85);
   
   // Refresh on resize
@@ -187,3 +178,4 @@ export function initCashewAnimation() {
     }, 250);
   });
 }
+
